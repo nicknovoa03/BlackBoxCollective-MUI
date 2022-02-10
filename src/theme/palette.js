@@ -54,7 +54,7 @@ export const dark = {
     contrastText: 'rgba(0, 0, 0, 0.87)',
   },
   text: {
-    primary: '#EEEEEF',
+    primary: '#EEEEE0',
     secondary: '#AEB0B4',
   },
   divider: 'rgba(255, 255, 255, 0.12)',

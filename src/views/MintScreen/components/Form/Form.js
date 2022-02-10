@@ -2,12 +2,8 @@
 import { ethers } from 'ethers';
 import { React, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
@@ -17,17 +13,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import { styled, useTheme } from '@mui/material/styles';
 
-
 import Web3 from 'web3';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
-
-import MintBackground from '../../../../BlackBoxSamples/MintBackground.GIF';
-import logo from '../../../../BlackBoxSamples/logoGold.png';
+import { contractAddr, contract } from '../../../../contracts/Contract';
 import GoldSvg from '../../../../BlackBoxSamples/BlackBoxCollectiveGold.png';
 import BlackSvg from '../../../../BlackBoxSamples/BlackBoxCollectiveBlack.png';
-import { contractAddr, contract } from '../../../../contracts/Contract';
-
 
 const Form = ({ colorInvert = false }) => {
   const theme = useTheme();
@@ -40,12 +31,13 @@ const Form = ({ colorInvert = false }) => {
 
   const WalletAddress = () => {
     const link = etherscanLink.concat(wallet);
-    if (wallet != undefined) {
+    var displayWallet;
+    if (wallet !== undefined) {
       var catWallet = String(wallet);
-      var displayWallet = catWallet.substring(0, 9) + "..." + catWallet.substring(catWallet.length - 9, catWallet.length);
+      displayWallet = catWallet.substring(0, 9) + "..." + catWallet.substring(catWallet.length - 9, catWallet.length);
     }
     else {
-      var displayWallet = 'Unconnected'
+      displayWallet = 'Unconnected'
     }
     return (
       <Typography align='center'>
@@ -146,7 +138,7 @@ const Form = ({ colorInvert = false }) => {
 
   return (
     <Box>
-      <Box marginBottom={3} paddingBottom={5}
+      <Box marginBottom={5} paddingBottom={5}
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -160,13 +152,11 @@ const Form = ({ colorInvert = false }) => {
               ? BlackSvg
               : GoldSvg
           }
-          height={{ xs: 'auto', md: 'auto' }}
-          maxHeight={{ xs: 'auto', md: 'auto' }}
+          height={1}
           width={1}
-          maxWidth={1}
         />
       </Box>
-      <Grid container spacing={2} paddingTop={5}>
+      <Grid container spacing={1} paddingTop={5}>
         <Grid item xs={12} sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -191,7 +181,7 @@ const Form = ({ colorInvert = false }) => {
             </Typography>
             <Box sx={{ minWidth: 100 }}>
               <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Passes</InputLabel>
+                <InputLabel>Passes</InputLabel>
                 <Select
                   defaultValue={1}
                   value={mintAmount}

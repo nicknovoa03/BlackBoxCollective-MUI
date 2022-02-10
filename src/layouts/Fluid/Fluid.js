@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import AppBar from '@mui/material/AppBar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -19,10 +16,7 @@ import { Footer } from './components';
 const Fluid = ({
   children,
   colorInvert = false,
-  bgcolor = 'alternate.main',
 }) => {
-  const theme = useTheme();
-  const { mode } = theme.palette;
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
