@@ -8,8 +8,6 @@ import Main from 'layouts/Fluid';
 import Container from 'components/Container';
 import { Form } from './components';
 
-import MintBackground from '../../BlackBoxSamples/MintBackground.GIF';
-import logoWhite from '../../BlackBoxSamples/logoWhite.png';
 import logoBlack from '../../BlackBoxSamples/logoBlack.png';
 import logoGold from '../../BlackBoxSamples/logoGold.png';
 
