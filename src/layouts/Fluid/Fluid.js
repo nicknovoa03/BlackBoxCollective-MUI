@@ -41,15 +41,13 @@ const Fluid = ({
   };
 
   return (
-    <Box id="js--fluid-top">
-
-      <TopNav colorInvert={colorInvert} />
-
+    <Box id="js--fluid-top" >
+      <TopNav colorInvert={colorInvert} sx={{mb:-10}}/>
       <main>
         {children}
         <Divider />
       </main>
-      <Container paddingY={4}>
+      <Container paddingY={-2}>
         <Footer />
       </Container>
       <NoSsr>

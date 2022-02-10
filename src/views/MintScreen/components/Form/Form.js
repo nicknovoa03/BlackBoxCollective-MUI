@@ -11,6 +11,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
 import { styled, useTheme } from '@mui/material/styles';
 
 
@@ -20,45 +24,12 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 
 import MintBackground from '../../../../BlackBoxSamples/MintBackground.GIF';
 import logo from '../../../../BlackBoxSamples/logoGold.png';
+import GoldSvg from '../../../../BlackBoxSamples/BlackBoxCollectiveGold.png';
+import BlackSvg from '../../../../BlackBoxSamples/BlackBoxCollectiveBlack.png';
 import { contractAddr, contract } from '../../../../contracts/Contract';
 
-const validationSchema = yup.object({
-  email: yup
-    .string()
-    .trim()
-    .email('Please enter a valid email address')
-    .required('Email is required.'),
-  password: yup
-    .string()
-    .required('Please specify your password')
-    .min(8, 'The password should have at minimum length of 8'),
-});
 
-const marks = [
-  {
-    value: 1,
-    label: '1',
-  },
-  {
-    value: 2,
-    label: '2',
-  }
-];
-
-function Copyright(props) {
-  return (
-    <Typography variant='body2' color='text.secondary' align='center' {...props}>
-      {'Copyright © '}
-      <Link color='inherit' href='https://www.blackboxcollective.io/'>
-        Black Box Collective
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const Form = ({colorInvert = false}) => {
+const Form = ({ colorInvert = false }) => {
   const theme = useTheme();
   const { mode } = theme.palette;
   const [mintAmount, setMintAmount] = useState(1);
@@ -69,10 +40,17 @@ const Form = ({colorInvert = false}) => {
 
   const WalletAddress = () => {
     const link = etherscanLink.concat(wallet);
+    if (wallet != undefined) {
+      var catWallet = String(wallet);
+      var displayWallet = catWallet.substring(0, 9) + "..." + catWallet.substring(catWallet.length - 9, catWallet.length);
+    }
+    else {
+      var displayWallet = 'Unconnected'
+    }
     return (
       <Typography align='center'>
         <Link color='inherit' href={link}>
-          {wallet}
+          {displayWallet}
         </Link>
       </Typography>
     );
@@ -80,10 +58,12 @@ const Form = ({colorInvert = false}) => {
 
   const ContractAddress = () => {
     const link = etherscanLink.concat(contractAddr);
+    var catAddr = String(contractAddr);
+    var displayAddr = catAddr.substring(0, 9) + "..." + catAddr.substring(catAddr.length - 9, catAddr.length);
     return (
       <Typography>
         <Link color='inherit' href={link}>
-          {contractAddr}
+          {displayAddr}
         </Link>
       </Typography>
     );
@@ -138,10 +118,11 @@ const Form = ({colorInvert = false}) => {
     const createTransaction = await web3.eth.sendTransaction(tx);
   }
 
-  const handleSlider = ({ event, value }) => {
-
+  const handleChange = (event) => {
+    setMintAmount(event.target.value);
   }
   const Web3Button = styled(Button)({
+    maxWidth: '500px',
     fontSize: 16,
     padding: '6px 12px',
     border: '1px solid',
@@ -164,52 +145,73 @@ const Form = ({colorInvert = false}) => {
   });
 
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    }}>
-      <Box marginBottom={3}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 700,
-          }}
-        >
-          Black Box Collective Access Pass
-        </Typography>
-
+    <Box>
+      <Box marginBottom={3} paddingBottom={5}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          mb: -18
+        }}>
+        <Box
+          component={LazyLoadImage}
+          src={
+            mode === 'light' && !colorInvert
+              ? BlackSvg
+              : GoldSvg
+          }
+          height={{ xs: 'auto', md: 'auto' }}
+          maxHeight={{ xs: 'auto', md: 'auto' }}
+          width={1}
+          maxWidth={1}
+        />
       </Box>
-      <Grid container spacing={1}
-      >
+      <Grid container spacing={2} paddingTop={5}>
         <Grid item xs={12} sx={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-          <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
-            Mint Amount
-          </Typography>
-          <Slider
-            onChangeCommitted={(events, value) => handleSlider(events, value)}
-            aria-label='Mint Amount'
-            defaultValue={1}
-            step={1}
-            marks={marks}
-            min={1}
-            max={2}
+          <Grid item xs={12}
             sx={{
-              color: 'text.primary',
-              mb: 4
-            }}
-          />
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              mb: 3,
+            }}>
+            <Typography
+              variant="h6"
+              sx={{
+                ml: 0,
+                mr: 5,
+                fontWeight: 400,
+              }}
+            >
+              Select Mint Amount:
+            </Typography>
+            <Box sx={{ minWidth: 100 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Passes</InputLabel>
+                <Select
+                  defaultValue={1}
+                  value={mintAmount}
+                  label="Passes"
+                  onChange={handleChange}
+                >
+                  <MenuItem value={1}>One</MenuItem>
+                  <MenuItem value={2}>Two</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Grid>
           {wallet &&
             <Web3Button
+              
               fullWidth
               variant='contained'
               onClick={mint}
             >
-              Mint
+              Mint {mintAmount} for {1.95 * mintAmount} ETH
             </Web3Button>
           } {!wallet &&
             <Web3Button
@@ -222,16 +224,16 @@ const Form = ({colorInvert = false}) => {
           }
         </Grid>
         <Grid item xs={12}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}>
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}>
           <Typography
             component='h4'
             variant='Subtitle'
             color={
-              mode ==='light' && !colorInvert
+              mode === 'light' && !colorInvert
                 ? 'Black'
                 : 'White'
             }
@@ -239,7 +241,8 @@ const Form = ({colorInvert = false}) => {
             display='flex'
             justifyContent='center'
             sx={{
-              mt: 2
+              mt: 3,
+              mb: 2
             }}
           >
             Connected Wallet:
@@ -258,7 +261,8 @@ const Form = ({colorInvert = false}) => {
             display='flex'
             justifyContent='center'
             sx={{
-              mt: 1
+              mt: 3,
+              mb: 2
             }}
           >
             Contract Address:

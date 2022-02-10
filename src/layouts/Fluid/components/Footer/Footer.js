@@ -6,8 +6,9 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-import logoBlack from '../../../../BlackBoxSamples/logoBlack.png';
-import logoGold from '../../../../BlackBoxSamples/logoGold.png';
+import logoBlack from '../../../../BlackBoxSamples/logoBlack-Box-Collective-Black-Gold.png';
+import logoGold from '../../../../BlackBoxSamples/logoBlack-Box-Collective-White-Gold.png';
+
 
 const Footer = () => {
   const theme = useTheme();
@@ -27,8 +28,8 @@ const Footer = () => {
             display={'flex'}
             component="a"
             href="/"
-            title="theFront"
-            width={80}
+            title="Black Box Collective"
+            width={150}
           >
             <Box
               component={'img'}
@@ -44,6 +45,7 @@ const Footer = () => {
           <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
             <Box marginTop={1} marginRight={2}>
               <Link
+                title='Discord'
                 underline="none"
                 component="a"
                 href="https://discord.gg/maAd9MDm"
@@ -55,6 +57,19 @@ const Footer = () => {
             </Box>
             <Box marginTop={1} marginRight={2}>
               <Link
+                title='OpenSea'
+                underline="none"
+                component="a"
+                href="https://opensea.io/collection/black-box-collective-access-pass"
+                color="text.primary"
+                variant={'subtitle2'}
+              >
+                OpenSea
+              </Link>
+            </Box>
+            <Box marginTop={1} marginRight={2}>
+              <Link
+                title='Home'
                 underline="none"
                 component="a"
                 href="https://blackboxcollective.io/"
