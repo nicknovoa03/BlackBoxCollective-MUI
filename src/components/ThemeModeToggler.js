@@ -9,14 +9,16 @@ const ThemeModeToggler = () => {
 
   return (
     <Button
-      variant={'outlined'}
+      variant={'text'}
       onClick={() => themeToggler()}
       aria-label="Dark mode toggler"
       color={mode === 'light' ? 'primary' : 'secondary'}
       sx={{
-        borderRadius: 2,
+        borderRadius: 0,
         minWidth: 'auto',
-        padding: 0.5,
+        mr: 2,
+        mt: 2,
+        padding: 2,
         borderColor: alpha(theme.palette.divider, 0.2),
       }}
     >
@@ -24,7 +26,6 @@ const ThemeModeToggler = () => {
         <svg
           width={20}
           height={20}
-          xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -40,7 +41,6 @@ const ThemeModeToggler = () => {
         <svg
           width={20}
           height={20}
-          xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
