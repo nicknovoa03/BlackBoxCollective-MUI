@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/MUI-Website/static/js/main.09b012bc.chunk.js",
+    "runtime-main.js": "/MUI-Website/static/js/runtime-main.b38ddbcb.js",
+    "static/css/2.9124dd47.chunk.css": "/MUI-Website/static/css/2.9124dd47.chunk.css",
+    "static/js/2.e68be235.chunk.js": "/MUI-Website/static/js/2.e68be235.chunk.js",
+    "static/js/3.2b1d63e4.chunk.js": "/MUI-Website/static/js/3.2b1d63e4.chunk.js",
+    "index.html": "/MUI-Website/index.html",
+    "static/js/2.e68be235.chunk.js.LICENSE.txt": "/MUI-Website/static/js/2.e68be235.chunk.js.LICENSE.txt",
+    "static/media/MintBackground.00f211c7.GIF": "/MUI-Website/static/media/MintBackground.00f211c7.GIF",
+    "static/media/logoBlack.f8f3ff6c.png": "/MUI-Website/static/media/logoBlack.f8f3ff6c.png",
+    "static/media/logoGold.1fc11ef8.png": "/MUI-Website/static/media/logoGold.1fc11ef8.png",
+    "static/media/logoWhite.edf503f5.png": "/MUI-Website/static/media/logoWhite.edf503f5.png",
+    "static/media/slick-theme.css": "/MUI-Website/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b38ddbcb.js",
+    "static/css/2.9124dd47.chunk.css",
+    "static/js/2.e68be235.chunk.js",
+    "static/js/main.09b012bc.chunk.js"
+  ]
+}
