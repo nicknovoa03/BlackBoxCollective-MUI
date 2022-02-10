@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {
-  SigninCover as SigninCoverVew,
+  MintScreen as MintScreenVew,
 } from 'views';
 
 const routes = [
   {
     path: '/',
-    renderer: (params = {}) => <SigninCoverVew {...params} />,
+    renderer: (params = {}) => <MintScreenVew {...params} />,
   },
 ];
 
