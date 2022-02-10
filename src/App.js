@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes';
 import Page from './components/Page';
-import SigninCover from './views/SigninCover/SigninCover'
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'slick-carousel/slick/slick.css';
@@ -13,8 +12,11 @@ import 'aos/dist/aos.css';
 const App = () => {
   return (
     <Page>
-      <SigninCover/>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </Page>
   );
 };
+
 export default App;
