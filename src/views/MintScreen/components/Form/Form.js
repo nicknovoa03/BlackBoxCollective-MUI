@@ -120,7 +120,7 @@ const Form = ({ colorInvert = false }) => {
     padding: '6px 12px',
     border: '1px solid',
     lineHeight: 1.5,
-    backgroundColor: '#eee',
+    backgroundColor: '#dfdfdf',
     color: '#111',
     fontFamily: [
       'Roboto',
