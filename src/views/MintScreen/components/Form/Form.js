@@ -144,7 +144,7 @@ const Form = ({ colorInvert = false }) => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          mb:-1,
+          mb: -3,
         }}>
         <Box
           component={LazyLoadImage}
@@ -153,8 +153,8 @@ const Form = ({ colorInvert = false }) => {
               ? BlackSvg
               : GoldSvg
           }
-          height={1}
-          width={1}
+          height={{ xs: 175, md: 1 }}
+          width={{ xs: 475, md: 1 }}
         />
       </Box>
       <Grid container spacing={1}>
@@ -170,7 +170,7 @@ const Form = ({ colorInvert = false }) => {
               alignItems: 'center',
               mb: 3,
             }}>
-            <Typography 
+            <Typography
               variant="h6"
               sx={{
                 ml: 0,
