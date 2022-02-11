@@ -120,13 +120,13 @@ const Form = ({ colorInvert = false }) => {
     padding: '6px 12px',
     border: '1px solid',
     lineHeight: 1.5,
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: '#eee',
+    color: '#111',
     fontFamily: [
       'Roboto',
     ].join(','),
     '&:hover': {
-      backgroundColor: '#fff',
+      backgroundColor: '#ffffff',
       borderColor: 'rgba(255, 255, 255, 0.08)',
       boxShadow: 'rgba(255, 255, 255, 0.16)',
     },
@@ -189,8 +189,8 @@ const Form = ({ colorInvert = false }) => {
                   label="Passes"
                   onChange={handleChange}
                 >
-                  <MenuItem value={1}>One</MenuItem>
-                  <MenuItem value={2}>Two</MenuItem>
+                  <MenuItem value={1}>1</MenuItem>
+                  <MenuItem value={2}>2</MenuItem>
                 </Select>
                 <FormHelperText>Please Select</FormHelperText>
               </FormControl>

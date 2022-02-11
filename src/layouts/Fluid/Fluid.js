@@ -51,7 +51,7 @@ const Fluid = ({
             role="presentation"
             sx={{ position: 'fixed', bottom: 24, right: 32 }}
           >
-            <Fab color="primary" size="small" aria-label="scroll back to top">
+            <Fab color="dark" size="small" aria-label="scroll back to top">
               <KeyboardArrowUpIcon />
             </Fab>
           </Box>
