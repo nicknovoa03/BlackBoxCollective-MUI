@@ -11,6 +11,7 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
 import { styled, useTheme } from '@mui/material/styles';
 
 import Web3 from 'web3';
@@ -138,12 +139,12 @@ const Form = ({ colorInvert = false }) => {
 
   return (
     <Box>
-      <Box marginBottom={5} paddingBottom={5}
+      <Box marginBottom={3}
         sx={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          mb: -18
+          mb:-1,
         }}>
         <Box
           component={LazyLoadImage}
@@ -156,7 +157,7 @@ const Form = ({ colorInvert = false }) => {
           width={1}
         />
       </Box>
-      <Grid container spacing={1} paddingTop={5}>
+      <Grid container spacing={1}>
         <Grid item xs={12} sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -169,21 +170,21 @@ const Form = ({ colorInvert = false }) => {
               alignItems: 'center',
               mb: 3,
             }}>
-            <Typography
+            <Typography 
               variant="h6"
               sx={{
                 ml: 0,
-                mr: 5,
+                mr: 4,
+                mb: 3,
                 fontWeight: 400,
               }}
             >
-              Select Mint Amount:
+              Minting Amount:
             </Typography>
             <Box sx={{ minWidth: 100 }}>
               <FormControl fullWidth>
                 <InputLabel>Passes</InputLabel>
                 <Select
-                  defaultValue={1}
                   value={mintAmount}
                   label="Passes"
                   onChange={handleChange}
@@ -191,12 +192,12 @@ const Form = ({ colorInvert = false }) => {
                   <MenuItem value={1}>One</MenuItem>
                   <MenuItem value={2}>Two</MenuItem>
                 </Select>
+                <FormHelperText>Please Select</FormHelperText>
               </FormControl>
             </Box>
           </Grid>
           {wallet &&
             <Web3Button
-              
               fullWidth
               variant='contained'
               onClick={mint}
@@ -209,7 +210,7 @@ const Form = ({ colorInvert = false }) => {
               variant='contained'
               onClick={() => connect()}
             >
-              Connect
+              Connect Wallet
             </Web3Button>
           }
         </Grid>

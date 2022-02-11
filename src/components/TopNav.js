@@ -7,7 +7,7 @@ import ThemeModeToggler from 'components/ThemeModeToggler';
 
 const TopNav = () => {
   return (
-    <Box display={'flex'} justifyContent={'flex-end'} alignItems={'center'} sx={{mb:-10}}>
+    <Box display={'flex'} justifyContent={'flex'} alignItems={'center'} sx={{mb:-10}}>
       <Box>
         <ThemeModeToggler />
       </Box>

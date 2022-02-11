@@ -15,16 +15,9 @@ const MintScreen = () => {
           overflow: 'hidden',
         }}
       >
-        <Container paddingX={0} paddingY={0} maxWidth={{ sm: 375, md: 800 }}>
-          <Box
-            display={'flex'}
-            flexDirection={{ xs: 'column', md: 'row' }}
-            position={'relative'}
-          >
-            <Box
-              display={'flex'}
-              alignItems={'center'}
-            >
+        <Container>
+          <Box>
+            <Box>
               <Container>
                 <Form />
               </Container>
