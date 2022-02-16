@@ -8,21 +8,9 @@ import { Form } from './components';
 const MintScreen = () => {
   return (
     <Main>
-      <Box 
-        sx={{
-          width: 1,
-          height: 1,
-          overflow: 'hidden',
-        }}
-      >
+      <Box marginTop={-5}>
         <Container>
-          <Box>
-            <Box>
-              <Container>
-                <Form />
-              </Container>
-            </Box>
-          </Box>
+          <Form />
         </Container>
       </Box>
     </Main>

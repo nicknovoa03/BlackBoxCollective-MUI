@@ -7,19 +7,15 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
+import Slider from '@mui/material/Slider';
 import { styled, useTheme } from '@mui/material/styles';
 
 import Web3 from 'web3';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import { contractAddr, contract } from '../../../../contracts/Contract';
-import GoldSvg from '../../../../BlackBoxSamples/BlackBoxCollectiveGold.png';
-import BlackSvg from '../../../../BlackBoxSamples/BlackBoxCollectiveBlack.png';
+
+import AccessPassLogo from '../../../../BlackBoxSamples/ACCESS_PASS_NFT.svg';
 
 const Form = ({ colorInvert = false }) => {
   const theme = useTheme();
@@ -114,6 +110,12 @@ const Form = ({ colorInvert = false }) => {
   const handleChange = (event) => {
     setMintAmount(event.target.value);
   }
+
+  function handleSlider(event, value) {
+    event.preventDefault();
+    setMintAmount(value);
+  }
+
   const Web3Button = styled(Button)({
     maxWidth: '500px',
     fontSize: 16,
@@ -137,6 +139,17 @@ const Form = ({ colorInvert = false }) => {
     }
   });
 
+  const marks = [
+    {
+      value: 1,
+      label: '1',
+    },
+    {
+      value: 2,
+      label: '2',
+    }
+  ];
+
   return (
     <Box>
       <Box marginBottom={3}
@@ -144,17 +157,13 @@ const Form = ({ colorInvert = false }) => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          mb: -3,
+          mb: 0,
         }}>
         <Box
           component={LazyLoadImage}
-          src={
-            mode === 'light' && !colorInvert
-              ? BlackSvg
-              : GoldSvg
-          }
-          height={{ xs: 175, md: 1 }}
-          width={{ xs: 475, md: 1 }}
+          src={AccessPassLogo}
+          height={{ xs: 1, md: 1 }}
+          width={{ xs: 1, md: 1 }}
         />
       </Box>
       <Grid container spacing={1}>
@@ -175,25 +184,25 @@ const Form = ({ colorInvert = false }) => {
               sx={{
                 ml: 0,
                 mr: 4,
-                mb: 3,
+                mb: 3.5,
                 fontWeight: 400,
               }}
             >
               Minting Amount:
             </Typography>
             <Box sx={{ minWidth: 100 }}>
-              <FormControl fullWidth>
-                <InputLabel>Passes</InputLabel>
-                <Select
-                  value={mintAmount}
-                  label="Passes"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={1}>1</MenuItem>
-                  <MenuItem value={2}>2</MenuItem>
-                </Select>
-                <FormHelperText>Please Select</FormHelperText>
-              </FormControl>
+              <Slider
+                onChangeCommitted={(events, value) => handleSlider(events, value)}
+                aria-label="Mint Amount"
+                defaultValue={1}
+                step={1}
+                marks={marks}
+                min={1}
+                max={2}
+                sx={{
+                  color: 'text.primary'
+                }}
+              />
             </Box>
           </Grid>
           {wallet &&

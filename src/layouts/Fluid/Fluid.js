@@ -9,13 +9,11 @@ import Zoom from '@mui/material/Zoom';
 import NoSsr from '@mui/material/NoSsr';
 
 import Container from 'components/Container';
-import TopNav from 'components/TopNav';
 
 import { Footer } from './components';
 
 const Fluid = ({
-  children,
-  colorInvert = false,
+  children
 }) => {
 
   const trigger = useScrollTrigger({
@@ -35,8 +33,7 @@ const Fluid = ({
   };
 
   return (
-    <Box id="js--fluid-top" >
-      <TopNav colorInvert={colorInvert}/>
+    <Box id="js--fluid-top">
       <main>
         {children}
         <Divider />
