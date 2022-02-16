@@ -1,7 +1,7 @@
 {
-  "name": "startup-website",
+  "name": "access-pass",
   "author": "Nick Novoa",
-  "homepage": "https://nicknovoa03.github.io/BlackBoxCollective-MUI-dApp/",
+  "homepage": "https://blackboxcollectivemint.io/",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -45,6 +45,7 @@
     "react": "^17.0.2",
     "react-countup": "^6.1.0",
     "react-dom": "17.0.2",
+    "react-gtm-module": "^2.0.11",
     "react-image-lightbox": "^5.1.4",
     "react-lazy-load-image-component": "^1.5.1",
     "react-router-dom": "^6.1.1",
