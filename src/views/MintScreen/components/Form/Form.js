@@ -162,8 +162,8 @@ const Form = ({ colorInvert = false }) => {
         <Box
           component={LazyLoadImage}
           src={AccessPassLogo}
-          height={{ xs: 1, md: 1 }}
-          width={{ xs: 1, md: 1 }}
+          height={{ xs: 1, lg: .75}}
+          width={{ xs: 1, lg: .75}}
         />
       </Box>
       <Grid container spacing={1}>
@@ -184,7 +184,7 @@ const Form = ({ colorInvert = false }) => {
               sx={{
                 ml: 0,
                 mr: 4,
-                mb: 3.5,
+                mb: 3.25,
                 fontWeight: 400,
               }}
             >
