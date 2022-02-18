@@ -88,7 +88,7 @@ const Footer = () => {
           color="text.secondary"
           gutterBottom
         >
-          &copy; Black Box Collective, 2021. All rights reserved
+          &copy; Black Box Collective, 2022. All rights reserved
         </Typography>
         <Typography
           align={'center'}
