@@ -104,6 +104,7 @@ const Form = ({ colorInvert = false }) => {
       data: contract.methods.mintBoardingPass(mintAmount).encodeABI(),
     };
 
+    // eslint-disable-next-line
     const createTransaction = await web3.eth.sendTransaction(tx);
   }
 
@@ -199,41 +200,27 @@ const Form = ({ colorInvert = false }) => {
         <Grid item xs={12} sx={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
+          alignItems: 'center'
         }}>
-          <Grid item xs={12}
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              mb: 3,
-            }}>
-            <Typography
-              variant="h6"
+          <Typography variant="h5" sx={{mx:1}}>
+            Minting Amount:
+          </Typography>
+          <Box item sx={{ minWidth: 300 }}>
+
+            <Slider
+              onChangeCommitted={(events, value) => handleSlider(events, value)}
+              aria-label="Mint Amount"
+              defaultValue={1}
+              step={1}
+              marks={marks}
+              min={1}
+              max={10}
               sx={{
-                ml: 0,
-                mr: 4,
-                mb: 3.25,
-                fontWeight: 400,
+                color: 'text.primary',
+                mb: 5
               }}
-            >
-              Minting Amount:
-            </Typography>
-            <Box sx={{ minWidth: 250 }}>
-              <Slider
-                onChangeCommitted={(events, value) => handleSlider(events, value)}
-                aria-label="Mint Amount"
-                defaultValue={1}
-                step={1}
-                marks={marks}
-                min={1}
-                max={10}
-                sx={{
-                  color: 'text.primary'
-                }}
-              />
-            </Box>
-          </Grid>
+            />
+          </Box>
           {wallet &&
             <Web3Button
               fullWidth
@@ -277,7 +264,6 @@ const Form = ({ colorInvert = false }) => {
             Connected Wallet:
           </Typography>
           <WalletAddress />
-
           <Typography
             component='h4'
             variant='Subtitle'
