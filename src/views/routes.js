@@ -1,13 +1,23 @@
 import React from 'react';
 
 import {
-  MintScreen as MintScreenVew,
+  AccessPass as AccessPassView,
+  AlphaClass as AlphaClassView,
+  BoardingPass as BoardingPassView
 } from 'views';
 
 const routes = [
   {
+    path: '/accesspass',
+    renderer: (params = {}) => <AccessPassView {...params} />,
+  },
+  {
+    path: '/boardingpass',
+    renderer: (params = {}) => <BoardingPassView {...params} />,
+  },
+  {
     path: '/',
-    renderer: (params = {}) => <MintScreenVew {...params} />,
+    renderer: (params = {}) => <AccessPassView {...params} />,
   },
 ];
 
