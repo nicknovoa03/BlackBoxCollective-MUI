@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.js": "/static/js/main.a407ca3b.chunk.js",
-    "runtime-main.js": "/static/js/runtime-main.cb22851a.js",
+    "main.js": "/static/js/main.bfa870e2.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.5daa93ea.js",
     "static/css/2.fa4f8ee2.chunk.css": "/static/css/2.fa4f8ee2.chunk.css",
-    "static/js/2.83e27652.chunk.js": "/static/js/2.83e27652.chunk.js",
-    "static/js/3.33cac17d.chunk.js": "/static/js/3.33cac17d.chunk.js",
+    "static/js/2.5064eb7b.chunk.js": "/static/js/2.5064eb7b.chunk.js",
+    "static/js/3.68424a95.chunk.js": "/static/js/3.68424a95.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.83e27652.chunk.js.LICENSE.txt": "/static/js/2.83e27652.chunk.js.LICENSE.txt",
+    "static/js/2.5064eb7b.chunk.js.LICENSE.txt": "/static/js/2.5064eb7b.chunk.js.LICENSE.txt",
     "static/media/ACCESS_PASS_NFT.30ac3ec2.svg": "/static/media/ACCESS_PASS_NFT.30ac3ec2.svg",
+    "static/media/ALPHA_CLASS.ea03abaa.svg": "/static/media/ALPHA_CLASS.ea03abaa.svg",
+    "static/media/BoardingPassLogo.9f027544.svg": "/static/media/BoardingPassLogo.9f027544.svg",
     "static/media/logoBlack-Box-Collective-Black-Gold.6a56c2a0.png": "/static/media/logoBlack-Box-Collective-Black-Gold.6a56c2a0.png",
     "static/media/logoBlack-Box-Collective-White-Gold.8944ef46.png": "/static/media/logoBlack-Box-Collective-White-Gold.8944ef46.png",
     "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.cb22851a.js",
+    "static/js/runtime-main.5daa93ea.js",
     "static/css/2.fa4f8ee2.chunk.css",
-    "static/js/2.83e27652.chunk.js",
-    "static/js/main.a407ca3b.chunk.js"
+    "static/js/2.5064eb7b.chunk.js",
+    "static/js/main.bfa870e2.chunk.js"
   ]
 }
